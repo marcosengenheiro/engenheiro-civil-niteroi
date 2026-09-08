@@ -409,6 +409,19 @@
   .field-hint{ font-family:var(--font-mono); font-size:11px; color:var(--muted-on-ink); margin-top:14px; }
   .honey{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 
+  .form-success{
+    border:1.5px solid var(--orange); background:var(--ink-2); padding:28px 24px;
+  }
+  .form-success-title{
+    font-family:var(--font-display); text-transform:uppercase; font-weight:800; font-size:1.2rem;
+    color:var(--orange); margin-bottom:10px;
+  }
+  .form-success-text{ color:var(--muted-on-ink); font-size:.95rem; line-height:1.6; }
+  .form-error{
+    margin-top:18px; font-family:var(--font-mono); font-size:12.5px; color:#ff8a3d; line-height:1.6;
+  }
+  .btn[disabled]{ opacity:.6; cursor:not-allowed; }
+
   /* ============ FLOATING BUTTONS ============ */
   .fab-stack{
     position:fixed; right:20px; bottom:20px; z-index:150; display:flex; flex-direction:column; gap:12px;
@@ -787,61 +800,69 @@
           <input type="hidden" name="_subject" value="Novo pedido de orçamento — site">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://marcosengenheiro.github.io/engenheiro-civil-niteroi/">
           <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-          <div class="field-row">
-            <div class="field">
-              <label for="nome">Nome</label>
-              <input type="text" id="nome" name="Nome" required>
+          <div id="orcamentoFields">
+            <div class="field-row">
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="Nome" required>
+              </div>
+              <div class="field">
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="telefone" name="Telefone" required>
+              </div>
             </div>
-            <div class="field">
-              <label for="telefone">Telefone / WhatsApp</label>
-              <input type="tel" id="telefone" name="Telefone" required>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="E-mail" required>
+              </div>
+              <div class="field">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="Cidade">
+              </div>
             </div>
+
+            <div class="field">
+              <label for="servico">Tipo de serviço</label>
+              <select id="servico" name="Serviço">
+                <option>Legalização de Imóveis</option>
+                <option>Regularização de Construções</option>
+                <option>Aprovação de Projetos</option>
+                <option>Desmembramento e Remembramento</option>
+                <option>Usucapião Extrajudicial</option>
+                <option>Laudos Técnicos</option>
+                <option>Vistoria com Drone</option>
+                <option>Acústica</option>
+                <option>Estudo de Impacto Viário</option>
+                <option>Obras Novas e Reformas</option>
+                <option>Projetos Especiais</option>
+                <option>Projeto e Aprovação no Bombeiro</option>
+                <option>Demolições</option>
+                <option>Licenciamento Ambiental</option>
+                <option>Mesas e Cadeiras em Área Pública</option>
+                <option>Letreiros e Publicidade</option>
+                <option>Outro / não sei ainda</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="Mensagem" placeholder="Conte um pouco sobre o imóvel e a situação atual."></textarea>
+            </div>
+
+            <button type="submit" id="orcamentoSubmit" class="btn btn-primary" style="width:100%; justify-content:center;">Enviar Solicitação</button>
+            <p class="field-hint">Seus dados são usados apenas para retorno do orçamento.</p>
           </div>
 
-          <div class="field-row">
-            <div class="field">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="E-mail" required>
-            </div>
-            <div class="field">
-              <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" name="Cidade">
-            </div>
+          <div id="orcamentoSuccess" class="form-success" hidden>
+            <p class="form-success-title">Solicitação enviada com sucesso.</p>
+            <p class="form-success-text">Obrigado pelo contato! Retornaremos em breve pelo telefone ou e-mail informado.</p>
           </div>
 
-          <div class="field">
-            <label for="servico">Tipo de serviço</label>
-            <select id="servico" name="Serviço">
-              <option>Legalização de Imóveis</option>
-              <option>Regularização de Construções</option>
-              <option>Aprovação de Projetos</option>
-              <option>Desmembramento e Remembramento</option>
-              <option>Usucapião Extrajudicial</option>
-              <option>Laudos Técnicos</option>
-              <option>Vistoria com Drone</option>
-              <option>Acústica</option>
-              <option>Estudo de Impacto Viário</option>
-              <option>Obras Novas e Reformas</option>
-              <option>Projetos Especiais</option>
-              <option>Projeto e Aprovação no Bombeiro</option>
-              <option>Demolições</option>
-              <option>Licenciamento Ambiental</option>
-              <option>Mesas e Cadeiras em Área Pública</option>
-              <option>Letreiros e Publicidade</option>
-              <option>Outro / não sei ainda</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="Mensagem" placeholder="Conte um pouco sobre o imóvel e a situação atual."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Enviar Solicitação</button>
-          <p class="field-hint">Seus dados são usados apenas para retorno do orçamento.</p>
+          <p id="orcamentoError" class="form-error" hidden>Não foi possível enviar agora. Tente novamente ou fale direto pelo telefone (21) 93618-3845 ou pelo e-mail projetosemniteroi@gmail.com.</p>
         </form>
 
       </div>
@@ -921,6 +942,41 @@
         });
       });
     }
+    // Envia o formulário de orçamento em segundo plano (sem sair da página) e mostra a confirmação ali mesmo.
+    var quoteForm = document.getElementById('orcamento');
+    if(quoteForm){
+      var fields = document.getElementById('orcamentoFields');
+      var success = document.getElementById('orcamentoSuccess');
+      var errorMsg = document.getElementById('orcamentoError');
+      var submitBtn = document.getElementById('orcamentoSubmit');
+
+      quoteForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        errorMsg.hidden = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        var data = new FormData(quoteForm);
+
+        fetch(quoteForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function(res){
+          if(res.ok){
+            fields.hidden = true;
+            success.hidden = false;
+          } else {
+            throw new Error('Falha no envio');
+          }
+        }).catch(function(){
+          errorMsg.hidden = false;
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enviar Solicitação';
+        });
+      });
+    }
+
     var y = document.getElementById('footerYear');
     if(y){ y.textContent = '© ' + new Date().getFullYear() + ' Marcos Araújo — Engenheiro Civil'; }
 
