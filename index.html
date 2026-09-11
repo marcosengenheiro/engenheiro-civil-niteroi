@@ -351,17 +351,18 @@
   @media (max-width:600px){ .portfolio-grid{ grid-template-columns:1fr; } }
   .portfolio-card{ border:1px solid var(--ink-line); background:var(--ink-2); }
   .card-plate{
-    aspect-ratio:4/3; position:relative; overflow:hidden;
-    background:
-      repeating-linear-gradient(135deg, transparent 0 10px, rgba(255,90,31,.14) 10px 11px),
-      var(--ink);
+    aspect-ratio:4/3; position:relative; overflow:hidden; background:var(--ink);
+  }
+  .card-plate img{
+    width:100%; height:100%; object-fit:cover; display:block;
   }
   .card-plate::after{
-    content:""; position:absolute; inset:14px; border:1px solid rgba(255,90,31,.45);
+    content:""; position:absolute; inset:14px; border:1px solid rgba(255,90,31,.55); pointer-events:none;
   }
   .card-plate .plate-index{
     position:absolute; top:24px; left:24px; font-family:var(--font-mono); font-size:11px;
-    color:var(--orange); letter-spacing:2px;
+    color:var(--orange); letter-spacing:2px; background:rgba(13,13,14,.72);
+    padding:4px 8px;
   }
   .card-caption{ padding:18px 20px; }
   .card-caption h3{ font-family:var(--font-display); font-size:1.05rem; text-transform:uppercase; color:var(--text-on-ink); font-weight:700; letter-spacing:.3px; }
@@ -528,7 +529,7 @@
         </div>
         <div class="leader">
           <span class="leader-dot" aria-hidden="true"></span>
-          <div><div class="leader-num">16</div><div class="leader-label">Especialidades técnicas</div></div>
+          <div><div class="leader-num">17</div><div class="leader-label">Especialidades técnicas</div></div>
         </div>
         <div class="leader">
           <span class="leader-dot" aria-hidden="true"></span>
@@ -583,7 +584,7 @@
   <section id="servicos" class="sheet sheet--ink">
     <div class="container">
       <p class="eyebrow">FL-03 · Índice de serviços</p>
-      <h2 style="color:var(--text-on-ink); font-size:clamp(2rem,4vw,2.9rem); max-width:680px;">16 especialidades técnicas, organizadas como um projeto</h2>
+      <h2 style="color:var(--text-on-ink); font-size:clamp(2rem,4vw,2.9rem); max-width:680px;">17 especialidades técnicas, organizadas como um projeto</h2>
 
       <div class="services-groups">
 
@@ -668,7 +669,7 @@
 
         <details class="service-group">
           <summary>
-            <span class="summary-left">Licenciamento &amp; Espaço Público <span class="summary-count">S14–S16</span></span>
+            <span class="summary-left">Licenciamento &amp; Espaço Público <span class="summary-count">S14–S17</span></span>
             <span class="summary-toggle"><span class="plus">+</span><span class="minus">−</span></span>
           </summary>
           <ul class="service-list">
@@ -683,6 +684,10 @@
             <li class="service-item">
               <span class="service-code">S16</span>
               <div><div class="service-name">Letreiros e Publicidade</div><div class="service-desc">Aprovação de letreiros, toldos e publicidade conforme legislação municipal.</div></div>
+            </li>
+            <li class="service-item">
+              <span class="service-code">S17</span>
+              <div><div class="service-name">Projeto de Vigilância Sanitária</div><div class="service-desc">Elaboração e aprovação de projeto para licenciamento junto à Vigilância Sanitária.</div></div>
             </li>
           </ul>
         </details>
@@ -727,31 +732,31 @@
     <div class="container">
       <p class="eyebrow">FL-05 · Portfólio</p>
       <h2 style="color:var(--text-on-ink); font-size:clamp(2rem,4vw,2.9rem); max-width:680px;">Exemplos de atuação por tipo de projeto</h2>
-      <p class="portfolio-note">Espaço reservado para fotos e estudos de caso reais de obras e processos conduzidos. As pranchas abaixo ilustram as categorias de projeto mais comuns.</p>
+      <p class="portfolio-note">Imagens ilustrativas das principais categorias de projeto atendidas.</p>
 
       <div class="portfolio-grid">
         <div class="portfolio-card">
-          <div class="card-plate"><span class="plate-index">PR-01</span></div>
+          <div class="card-plate"><img src="fotos/pr-01-regularizacao-residencial.jpg" alt="Regularização residencial — planta aprovada pela prefeitura" loading="lazy"><span class="plate-index">PR-01</span></div>
           <div class="card-caption"><h3>Regularização Residencial</h3><p>LEGALIZAÇÃO · PREFEITURA</p></div>
         </div>
         <div class="portfolio-card">
-          <div class="card-plate"><span class="plate-index">PR-02</span></div>
+          <div class="card-plate"><img src="fotos/pr-02-vistoria-drone.jpg" alt="Drone em vistoria aérea de telhado" loading="lazy"><span class="plate-index">PR-02</span></div>
           <div class="card-caption"><h3>Vistoria Aérea com Drone</h3><p>FACHADA · COBERTURA</p></div>
         </div>
         <div class="portfolio-card">
-          <div class="card-plate"><span class="plate-index">PR-03</span></div>
+          <div class="card-plate"><img src="fotos/pr-03-usucapiao-extrajudicial.jpg" alt="Documentação técnica e plantas para usucapião extrajudicial" loading="lazy"><span class="plate-index">PR-03</span></div>
           <div class="card-caption"><h3>Usucapião Extrajudicial</h3><p>CARTÓRIO · DOCUMENTAÇÃO</p></div>
         </div>
         <div class="portfolio-card">
-          <div class="card-plate"><span class="plate-index">PR-04</span></div>
+          <div class="card-plate"><img src="fotos/pr-04-reforma-art.jpg" alt="Acompanhamento técnico de reforma em obra" loading="lazy"><span class="plate-index">PR-04</span></div>
           <div class="card-caption"><h3>Reforma com ART</h3><p>ACOMPANHAMENTO TÉCNICO</p></div>
         </div>
         <div class="portfolio-card">
-          <div class="card-plate"><span class="plate-index">PR-05</span></div>
+          <div class="card-plate"><img src="fotos/pr-05-projeto-estrutural.jpg" alt="Estrutura de concreto armado em obra nova" loading="lazy"><span class="plate-index">PR-05</span></div>
           <div class="card-caption"><h3>Projeto Estrutural</h3><p>OBRA NOVA</p></div>
         </div>
         <div class="portfolio-card">
-          <div class="card-plate"><span class="plate-index">PR-06</span></div>
+          <div class="card-plate"><img src="fotos/pr-06-laudo-avaliacao.jpg" alt="Laudo técnico de avaliação de imóvel em tablet" loading="lazy"><span class="plate-index">PR-06</span></div>
           <div class="card-caption"><h3>Laudo de Avaliação</h3><p>PERÍCIA TÉCNICA</p></div>
         </div>
       </div>
@@ -842,6 +847,7 @@
                 <option>Licenciamento Ambiental</option>
                 <option>Mesas e Cadeiras em Área Pública</option>
                 <option>Letreiros e Publicidade</option>
+                <option>Projeto de Vigilância Sanitária</option>
                 <option>Outro / não sei ainda</option>
               </select>
             </div>
